@@ -6,8 +6,8 @@ var pointTwo = document.querySelector('#pointTwo');
 var pointThree = document.querySelector('#pointThree');
 var pointFour = document.querySelector('#pointFour');
 var one = {
-        latitude: 50.823385, 
-        longitude: 12.937760
+        latitude: 50.822163, 
+        longitude: 12.939683
     };
 
 window.onload = () => {
