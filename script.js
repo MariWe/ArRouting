@@ -1,3 +1,4 @@
+var aktuell;
 var pfeil = document.querySelector('#pfeil');
 var pony = document.querySelector('#pony');
 var pointOne = document.querySelector('#pointOne');
@@ -10,33 +11,29 @@ var one = {
     };
 
 window.onload = () => {
-    getLocation();  
-
-    /*setInterval(function() { 
-       Pointing(); 
-      }, 100);*/
-      
-      Navigation();      
+    getLocation();     
 }
 
 function getLocation(){
     navigator.geolocation.watchPosition(function (position){
-        var aktuell = position.coords;
-        console.log(aktuell);   
+        aktuell = position.coords;
+        console.log(aktuell);
+        return aktuell.latitude, aktuell.longitude;
+            
     })
-    Navigation();  
-}
-
-function Navigation(){
-    var pfeil = document.querySelector('#pfeil');
-    var pony = document.querySelector('#pony');
-
-    do{
-        var position = pony.object3D.position;
-        pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z)); 
-    } while(one.latitude != aktuell.latitude);
+    setInterval(function() { 
+       Pointing(); 
+      }, 100);
 }
 
 function Pointing(){ 
-       
+    var pfeil = document.querySelector('#pfeil');
+    var pony = document.querySelector('#pony');
+
+    if(one.latitude != aktuell.latitude){
+    var position = pony.object3D.position;
+    pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z)); 
+    }
+    else{
+    }
 }  
