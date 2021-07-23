@@ -1,34 +1,42 @@
+var pfeil = document.querySelector('#pfeil');
+var pony = document.querySelector('#pony');
+var pointOne = document.querySelector('#pointOne');
+var pointTwo = document.querySelector('#pointTwo');
+var pointThree = document.querySelector('#pointThree');
+var pointFour = document.querySelector('#pointFour');
+var one = {
+        latitude: 50.823385, 
+        longitude: 12.937760
+    };
+
 window.onload = () => {
+    getLocation();  
 
-    getLocation();
-    test();
-
-    setInterval(function() { 
-        Pointing(); 
-    }, 100);
+    /*setInterval(function() { 
+       Pointing(); 
+      }, 100);*/
+      
+      Navigation();      
 }
 
 function getLocation(){
     navigator.geolocation.watchPosition(function (position){
-        var lati = position.coords.latitude;
-        var long = position.coords.longitude;
-        console.log(lati, long);
+        var aktuell = position.coords;
+        console.log(aktuell);   
     })
+    Navigation();  
 }
 
-function Pointing(){
+function Navigation(){
     var pfeil = document.querySelector('#pfeil');
     var pony = document.querySelector('#pony');
-    var position = pony.object3D.position;
 
-    pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
-}  
-
-function test(){
-    var camera = document.querySelector('#camera');
-    var test = document.querySelector('#test');
-
-    if(camera.object3D.position == test.object3D.position){
-        pfeil.setAttribute(scale, "2 2 2");
-    }
+    do{
+        var position = pony.object3D.position;
+        pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z)); 
+    } while(one.latitude != aktuell.latitude);
 }
+
+function Pointing(){ 
+       
+}  
