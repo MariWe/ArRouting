@@ -1,76 +1,72 @@
-var aktuell;
-var pfeil = document.querySelector('#pfeil');
-var pony = document.querySelector('#pony');
-var pointOne = document.querySelector('#pointOne');
-var pointTwo = document.querySelector('#pointTwo');
-var pointThree = document.querySelector('#pointThree');
-var pointFour = document.querySelector('#pointFour');
-    var one = {
-        latitude: 50.822163, 
-        longitude: 12.939683
-    };
-    var two = {
-        latitude: 50.822597, 
-        longitude: 12.938641
-    };
-    var three = {
-        latitude: 50.823076, 
-        longitude: 12.937690
-    };
-    var four = {
-        latitude: 50.823420, 
-        longitude: 12.937663
-    };
+    let lat1, lat2, lon1, lon2;
+    let d;
+    let help = 0;
+    var one = document.querySelector('#one');
+    window.onload = () => {
 
-window.onload = () => {
-    getLocation();     
-}
+    getLocation();
+    setInterval(function(){
+        setTimeout(function() {
+            Pointing();
+            }, 2000); 
+    }, 100)
 
-function getLocation(){
-    navigator.geolocation.watchPosition(function (position){
-        aktuell = position.coords;
-        console.log(aktuell);
-        return aktuell.latitude, aktuell.longitude;
-            
-    })
-    setInterval(function() { 
-       Pointing(); 
-      }, 100);
-}
+   /*setTimeout(function() {
+        Navigation();
+        }, 5000);*/
+    
+    function Navigation(){
+    while(help == 0){
+        if(d < 15){
+            one = document.querySelector('#one');
+        if(d < 10){
+        console.log(d);
+        one = document.querySelector('#two');
+        help = 1;
+        }}
+        }}
+    
+     //Marker Positionen
+     lat2 = 50.8222;
+     lon2 = 12.9399;
+ 
+     marLat2 = 50.82303;
+     marLon2 = 12.93763;
+ 
+     goalLat = 50.82344;
+     goalLon = 12.9379;
 
-function Pointing(){ 
-    var pfeil = document.querySelector('#pfeil');
-    var pony = document.querySelector('#pony');
-    var pointOne = document.querySelector('#pointOne');
-    var pointTwo = document.querySelector('#pointTwo');
-    var pointThree = document.querySelector('#pointThree');
-    var pointFour = document.querySelector('#pointFour');
-
-    if(one.latitude != aktuell.latitude){
-    var position = pointOne.object3D.position;
-    pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z)); 
-    }
-    else{
-        if(two.latitude != aktuell.latitude){
-            var position = pointTwo.object3D.position;
-            pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
+    //Aktuelle Position
+    function getLocation(){
+        navigator.geolocation.watchPosition(function (position){
+            aktuell = position.coords;
+            lat1 = aktuell.latitude;
+            lon1 = aktuell.longitude;
+            console.log(lat1, lon1);
+            distanz();
         }
-        else{
-            if(three.latitude != aktuell.latitude){
-                var position = pointThree.object3D.position;
-                pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
-            }
-            else{
-                if(four.latitude != aktuell.latitude){
-                    var position = pointFour.object3D.position;
-                    pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
-                }
-                else{
-                    alert("You reached your goal!");
-                    var position = pony.object3D.position;
-                    pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
-                }
-            }
-        }
+        )}
+
+    //Ausrichtung des Pfeils
+    function Pointing(){
+        one = document.querySelector('#one');
+        var pfeil = document.querySelector('#pfeil');
+        var position = one.object3D.position;
+        pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
     }
-}  
+    
+    //distanzBerechnung
+    //cr: "https://www.movable-type.co.uk/scripts/latlong.html"
+    function distanz(){
+    const R = 6371e3; // metres
+    const φ1 = lat1 * Math.PI/180; // φ, λ in radians
+    const φ2 = lat2 * Math.PI/180;
+    const Δφ = (lat2-lat1) * Math.PI/180;
+    const Δλ = (lon2-lon1) * Math.PI/180;
+    const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+            Math.cos(φ1) * Math.cos(φ2) *
+            Math.sin(Δλ/2) * Math.sin(Δλ/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    d = R * c; // in metres
+    }
+}
