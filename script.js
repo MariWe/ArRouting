@@ -69,6 +69,8 @@
             Math.sin(Δλ/2) * Math.sin(Δλ/2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     d = R * c; // in metres
+    const div = document.querySelector('#demo');
+    div.innerText = d;
     }
 }
     
