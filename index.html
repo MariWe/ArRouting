@@ -6,6 +6,7 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"> </script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>  
     <script src="./script.js"></script>
+
   </head> 
   <body style='margin: 0; overflow: hidden;'>
     <a-scene 
@@ -13,26 +14,31 @@
         vr-mode-ui='enabled: false' 
         embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-      <a-gltf-model src="https://raw.githubusercontent.com/MariWe/ArRouting/main/assets/pony.glb"
-      gps-entity-place="latitude: 50.821913; longitude: 12.939602;"
+        <!--Pony-->
+      <a-gltf-model src="https://raw.githubusercontent.com/MariWe/ArSkulpturen/main/assets/pony.glb"
+      gps-entity-place="latitude: 50.82344; longitude: 12.9379;"
       scale="1 1 1"
-      id="pony"
-      >
-      </a-gltf-model>
+      id="pony"></a-gltf-model>
 
-      <a-entity id="pointOne" gps-enity-place="latitude:50.8222111; longitude: 12.9399245;"></a-entity>
-      <a-entity id="pointTwo" gps-enity-place="latitude:50.822597; longitude: 12.938641;"></a-entity>
-      <a-entity id="poinThree" gps-enity-place="latitude:50.823076; longitude: 12.937690;"></a-entity>
-      <a-entity id="pointFour" gps-enity-place="latitude:50.823429; longitude: 12.937663;"></a-entity>
+      <!--1. Wegpunkt-->
+      <a-gltf-model src="https://raw.githubusercontent.com/MariWe/ArSkulpturen/main/assets/ring.glb"
+      gps-entity-place="latitude: 50.8222; longitude: 12.9399;"
+      scale="0.5 0.5 0.5"
+      id="one"></a-gltf-model>
 
-      
-      <a-camera look-controls-enabled="false" arjs-look-controls="smoothingFactor: 0.1" id="camera" gps-camera=" minDistance: 1; maxDistance: 20;  gpsMinDistance: 5; gpsTimeInterval: 3;"rotation-reader>
+      <!--2. Wegpunkt-->
+      <a-gltf-model src="https://raw.githubusercontent.com/MariWe/ArSkulpturen/main/assets/ring.glb"
+      gps-entity-place="latitude: 50.82303; longitude: 12.93763;"
+      scale="0.5 0.5 0.5"
+      id="two"></a-gltf-model>
+
+      <!--Camera + Arrow-->
+      <a-camera gps-camera=" minDistance: 1; maxDistance: 5;  gpsMinDistance: 5; gpsTimeInterval: 3;" rotation-reader>
         <a-gltf-model id="pfeil"
-        src="https://raw.githubusercontent.com/MariWe/ArRouting/main/assets/Unbenannt.glb"
+        src="https://raw.githubusercontent.com/MariWe/ArSkulpturen/main/assets/Unbenannt.glb"
         scale="1 1 1"
-        position="0 0 -5 "  
-        >
-</a-gltf-model>
+        position="0 0 -4 ">
+        </a-gltf-model>
       </a-camera> 
 </a-scene>
 </body> 
