@@ -1,40 +1,42 @@
-    let lat1, lat2, lon1, lon2;
+    let lat1, lat2, lon1, lon2, p1Lat, p1Lon, p2Lat, p2Lon, p3Lat, p3Lon, zLat, zLon;
     let d;
     let help = 0;
-    var one = document.querySelector('#one');
+    var one;
     window.onload = () => {
 
     getLocation();
+    one = document.querySelector('#one');
     setInterval(function(){
         setTimeout(function() {
             Pointing();
             }, 2000); 
     }, 100)
 
-   /*setTimeout(function() {
+   setTimeout(function() {
         Navigation();
-        }, 5000);*/
+        }, 5000);
     
     function Navigation(){
     while(help == 0){
-        if(d < 15){
-            one = document.querySelector('#one');
-        if(d < 10){
         console.log(d);
+        if(d < 5){
         one = document.querySelector('#two');
+        lat2 = p2Lat;
+        lon2 = p2Lon;
         help = 1;
-        }}
+        }
         }}
     
      //Marker Positionen
-     lat2 = 50.8222;
-     lon2 = 12.9399;
- 
-     marLat2 = 50.82303;
-     marLon2 = 12.93763;
- 
-     goalLat = 50.82344;
-     goalLon = 12.9379;
+     lat2 = 50.822125670138014;
+     lon2 = 12.939836075712524;
+     p2Lat = 50.82256970090178;
+     p2Lon = 12.938768380626097;
+     p3Lat = 50.82300402804472;
+     p3Lon = 12.937663802663764;
+     zLat = 50.82344880592846;
+     zLon = 12.937746951147917;
+
 
     //Aktuelle Position
     function getLocation(){
@@ -49,7 +51,6 @@
 
     //Ausrichtung des Pfeils
     function Pointing(){
-        one = document.querySelector('#one');
         var pfeil = document.querySelector('#pfeil');
         var position = one.object3D.position;
         pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
@@ -70,3 +71,5 @@
     d = R * c; // in metres
     }
 }
+    
+    
