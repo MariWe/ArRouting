@@ -34,16 +34,16 @@
                     lat2 = p3Lat;
                     lon2 = p3Lat;
                     chP2 = true;
-                    var element = document.getElementById('two');
-                    element.parentNode.removeChild(element);
+                    var element1 = document.getElementById('two');
+                    element.parentNode.removeChild(element1);
                 }
                 if(chP1 == true && chP2 == true && chP3 == false && d < 5){
                     one = document.querySelector('#pony');
                     lat2 = zLat;
                     lon2 = zLon;
                     chP3 = true;
-                    var element = document.getElementById('three');
-                    element.parentNode.removeChild(element);
+                    var element2 = document.getElementById('three');
+                    element.parentNode.removeChild(element2);
                 }
                 if(chP1 == true && chP2 == true && chP3 == true && d < 3){
                     alert("Sie haben Ihr Ziel erreicht!");
