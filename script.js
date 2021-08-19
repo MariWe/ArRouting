@@ -14,13 +14,14 @@
         setTimeout(function() {
             Pointing();
             Navigation();
-            }, 1000); 
+            }, 5000); 
     }, 100)
 
    /*setTimeout(function() {
         Navigation();
         }, 5000);*/
-    function Navigation(){
+    
+        function Navigation(){
                 if(chP1 == false && d < 5){
                 one = document.querySelector('#two');
                 lat2 = p2Lat;
@@ -50,6 +51,7 @@
                     clearInterval(interval);
                 }
                 }
+   
     
      //Marker Positionen
      lat2 = 50.822125670138014;
@@ -96,4 +98,5 @@
     div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
     }
 }
+    
     
