@@ -1,4 +1,8 @@
     let lat1, lat2, lon1, lon2, p1Lat, p1Lon, p2Lat, p2Lon, p3Lat, p3Lon, zLat, zLon;
+    let chP1 = false; 
+    let chP2 = false; 
+    let chP3 = false; 
+    let zielP = false; 
     let d;
     let help = 0;
     var one;
@@ -6,26 +10,41 @@
 
     getLocation();
     one = document.querySelector('#one');
-    setInterval(function(){
+    var interval = setInterval(function(){
         setTimeout(function() {
             Pointing();
-            }, 2000); 
+            Navigation();
+            }, 1000); 
     }, 100)
 
-   setTimeout(function() {
+   /*setTimeout(function() {
         Navigation();
-        }, 5000);
+        }, 5000);*/
     
-    function Navigation(){
-    while(help == 0){
-        console.log(d);
-        if(d < 5){
-        one = document.querySelector('#two');
-        lat2 = p2Lat;
-        lon2 = p2Lon;
-        help = 1;
-        }
-        }}
+        function Navigation(){
+                if(chP1 == false && d < 5){
+                one = document.querySelector('#two');
+                lat2 = p2Lat;
+                lon2 = p2Lon;
+                chP1 = true;
+                }
+                if(chP1 == true && chP2 == false && d < 5){
+                    one = document.querySelector('#three');
+                    lat2 = p3Lat;
+                    lon2 = p3Lat;
+                    chP2 = true;
+                }
+                if(chP1 == true && chP2 == true && chp3 == false && d < 5){
+                    one = document.querySelector('#pony');
+                    lat2 = zLat;
+                    lon2 = zLon;
+                    chp3 = true;
+                }
+                if(chP1 == true && chP2 == true && chP3 == true && d < 3){
+                    alert("Sie haben Ihr Ziel erreicht!");
+                    clearInterval(interval);
+                }
+                }
     
      //Marker Positionen
      lat2 = 50.822125670138014;
@@ -44,7 +63,6 @@
             aktuell = position.coords;
             lat1 = aktuell.latitude;
             lon1 = aktuell.longitude;
-            console.log(lat1, lon1);
             distanz();
         }
         )}
@@ -73,5 +91,4 @@
     div.innerText = d;
     }
 }
-    
     
