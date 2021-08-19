@@ -20,25 +20,30 @@
    /*setTimeout(function() {
         Navigation();
         }, 5000);*/
-    
-        function Navigation(){
-                if(chP1 == false && d < 10){
+    function Navigation(){
+                if(chP1 == false && d < 5){
                 one = document.querySelector('#two');
                 lat2 = p2Lat;
                 lon2 = p2Lon;
                 chP1 = true;
+                var element = document.getElementById('one');
+                element.parentNode.removeChild(element);
                 }
                 if(chP1 == true && chP2 == false && d < 5){
                     one = document.querySelector('#three');
                     lat2 = p3Lat;
                     lon2 = p3Lat;
                     chP2 = true;
+                    var element = document.getElementById('two');
+                    element.parentNode.removeChild(element);
                 }
-                if(chP1 == true && chP2 == true && chp3 == false && d < 5){
+                if(chP1 == true && chP2 == true && chP3 == false && d < 5){
                     one = document.querySelector('#pony');
                     lat2 = zLat;
                     lon2 = zLon;
                     chP3 = true;
+                    var element = document.getElementById('three');
+                    element.parentNode.removeChild(element);
                 }
                 if(chP1 == true && chP2 == true && chP3 == true && d < 3){
                     alert("Sie haben Ihr Ziel erreicht!");
@@ -88,7 +93,7 @@
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     d = R * c; // in metres
     const div = document.querySelector('#demo');
-    div.innerText = d;
+    div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
     }
 }
     
