@@ -38,7 +38,7 @@
                     one = document.querySelector('#pony');
                     lat2 = zLat;
                     lon2 = zLon;
-                    chp3 = true;
+                    chP3 = true;
                 }
                 if(chP1 == true && chP2 == true && chP3 == true && d < 3){
                     alert("Sie haben Ihr Ziel erreicht!");
