@@ -18,34 +18,32 @@
     }, 100)
 
         function Navigation(){
-                if(chP1 == false && d < 8){
+                if(chP1 == false && d < 15){
                 one = document.querySelector('#two');
                 lat2 = p2Lat;
                 lon2 = p2Lon;
                 chP1 = true;
-                //var element = document.getElementById('one');
-                //element.parentNode.removeChild(element);
+                document.getElementById("one").setAttribute('scale', '0, 0 ,0');
                 }
-                if(chP1 == true && chP2 == false && d < 5){
+                if(chP1 == true && d < 95){
                     one = document.querySelector('#three');
                     lat2 = p3Lat;
-                    lon2 = p3Lat;
+                    lon2 = p3Lon;
                     chP2 = true;
-                    //var element1 = document.getElementById('two');
-                    //element1.parentNode.removeChild(element1);
+                    document.getElementById("two").setAttribute('scale', '0, 0 ,0');
                 }
-                if(chP1 == true && chP2 == true && chP3 == false && d < 5){
+                if(chP1 == true && chP2 == true && d < 5){
                     one = document.querySelector('#pony');
                     lat2 = zLat;
                     lon2 = zLon;
                     chP3 = true;
-                    //var element2 = document.getElementById('three');
-                    //element2.parentNode.removeChild(element2);
+                    document.getElementById("three").setAttribute('scale', '0, 0 ,0');
                 }
                 if(chP1 == true && chP2 == true && chP3 == true && d < 3){
                     alert("Sie haben Ihr Ziel erreicht!");
-                    //clearInterval(interval);
-                }}
+                    clearInterval(interval);
+                }
+                }
   
      //Marker Positionen
      lat2 = 50.822125670138014;
