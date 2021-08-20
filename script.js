@@ -18,7 +18,7 @@
     }, 100)
 
         function Navigation(){
-                if(chP1 == false && d < 5){
+                if(chP1 == false && d < 8){
                 one = document.querySelector('#two');
                 lat2 = p2Lat;
                 lon2 = p2Lon;
