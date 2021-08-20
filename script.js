@@ -14,7 +14,7 @@
         setTimeout(function() {
             Pointing();
             Navigation();
-            }, 1000); 
+            }, 5000); 
     }, 100)
 
         function Navigation(){
@@ -44,7 +44,8 @@
                     clearInterval(interval);
                 }
                 }
-  
+   
+    
      //Marker Positionen
      lat2 = 50.822125670138014;
      lon2 = 12.939836075712524;
@@ -90,3 +91,5 @@
     div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
     }
 }
+    
+    
