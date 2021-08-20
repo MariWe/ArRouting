@@ -14,45 +14,39 @@
         setTimeout(function() {
             Pointing();
             Navigation();
-            }, 5000); 
+            }, 1000); 
     }, 100)
 
-   /*setTimeout(function() {
-        Navigation();
-        }, 5000);*/
-    
         function Navigation(){
                 if(chP1 == false && d < 5){
                 one = document.querySelector('#two');
                 lat2 = p2Lat;
                 lon2 = p2Lon;
                 chP1 = true;
-                var element = document.getElementById('one');
-                element.parentNode.removeChild(element);
+                //var element = document.getElementById('one');
+                //element.parentNode.removeChild(element);
                 }
                 if(chP1 == true && chP2 == false && d < 5){
                     one = document.querySelector('#three');
                     lat2 = p3Lat;
                     lon2 = p3Lat;
                     chP2 = true;
-                    var element1 = document.getElementById('two');
-                    element1.parentNode.removeChild(element1);
+                    //var element1 = document.getElementById('two');
+                    //element1.parentNode.removeChild(element1);
                 }
                 if(chP1 == true && chP2 == true && chP3 == false && d < 5){
                     one = document.querySelector('#pony');
                     lat2 = zLat;
                     lon2 = zLon;
                     chP3 = true;
-                    var element2 = document.getElementById('three');
-                    element2.parentNode.removeChild(element2);
+                    //var element2 = document.getElementById('three');
+                    //element2.parentNode.removeChild(element2);
                 }
                 if(chP1 == true && chP2 == true && chP3 == true && d < 3){
                     alert("Sie haben Ihr Ziel erreicht!");
-                    clearInterval(interval);
-                }
-                }
-   
-    
+                    //clearInterval(interval);
+                }}
+  
      //Marker Positionen
      lat2 = 50.822125670138014;
      lon2 = 12.939836075712524;
@@ -98,5 +92,3 @@
     div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
     }
 }
-    
-    
