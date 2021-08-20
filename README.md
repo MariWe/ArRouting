@@ -1,2 +1,1 @@
-# ArSkulpturen
-AR Objekte der Kunstsammlung Chemnitz 
+Kurzstrecken AR Navigation 
