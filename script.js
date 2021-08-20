@@ -18,14 +18,14 @@
     }, 100)
 
         function Navigation(){
-                if(chP1 == false && d < 15){
+                if(chP1 == false && d < 5){
                 one = document.querySelector('#two');
                 lat2 = p2Lat;
                 lon2 = p2Lon;
                 chP1 = true;
                 document.getElementById("one").setAttribute('scale', '0, 0 ,0');
                 }
-                if(chP1 == true && d < 95){
+                if(chP1 == true && d < 5){
                     one = document.querySelector('#three');
                     lat2 = p3Lat;
                     lon2 = p3Lon;
