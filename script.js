@@ -13,35 +13,46 @@
     var interval = setInterval(function(){
         setTimeout(function() {
             Pointing();
+            Distanz();
             Navigation();
+            
             }, 5000); 
     }, 100)
 
         function Navigation(){
-                if(chP1 == false && d < 5){
+                if(chP1 == false && d < 10){
+                console.log("1");
                 one = document.querySelector('#two');
                 lat2 = p2Lat;
                 lon2 = p2Lon;
                 chP1 = true;
                 document.getElementById("one").setAttribute('scale', '0, 0 ,0');
                 }
-                if(chP1 == true && d < 5){
+                if(chP2 == false && chP1 == true && d < 5){
+                    console.log("2");
                     one = document.querySelector('#three');
                     lat2 = p3Lat;
                     lon2 = p3Lon;
                     chP2 = true;
-                    document.getElementById("two").setAttribute('scale', '0, 0 ,0');
+                   // document.getElementById("two").setAttribute('scale', '0, 0 ,0');
                 }
-                if(chP1 == true && chP2 == true && d < 5){
+                if(chP3 == false && chP1 == true && chP2 == true && d < 5){
+                    console.log("3");
                     one = document.querySelector('#pony');
                     lat2 = zLat;
                     lon2 = zLon;
                     chP3 = true;
-                    document.getElementById("three").setAttribute('scale', '0, 0 ,0');
+                    //document.getElementById("three").setAttribute('scale', '0, 0 ,0');
                 }
-                if(chP1 == true && chP2 == true && chP3 == true && d < 3){
+                if(chP1 == true && chP2 == true && chP3 == true &&  zielP == false && d < 3){
                     alert("Sie haben Ihr Ziel erreicht!");
                     clearInterval(interval);
+                }
+                else{
+                    chP1 = false;
+                    chP2 = false;
+                    chP3 = false;
+                    zielP = false;
                 }
                 }
    
@@ -63,7 +74,6 @@
             aktuell = position.coords;
             lat1 = aktuell.latitude;
             lon1 = aktuell.longitude;
-            distanz();
         }
         )}
 
@@ -76,7 +86,7 @@
     
     //distanzBerechnung
     //cr: "https://www.movable-type.co.uk/scripts/latlong.html"
-    function distanz(){
+    function Distanz(){
     const R = 6371e3; // metres
     const φ1 = lat1 * Math.PI/180; // φ, λ in radians
     const φ2 = lat2 * Math.PI/180;
@@ -91,5 +101,3 @@
     div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
     }
 }
-    
-    
