@@ -11,16 +11,13 @@
     getLocation();
     one = document.querySelector('#one');
     var interval = setInterval(function(){
-        setTimeout(function() {
             Pointing();
             Distanz();
             Navigation();
-            
-            }, 5000); 
     }, 100)
 
         function Navigation(){
-                if(chP1 == false && d < 10){
+                if(chP1 == false && d < 5){
                 console.log("1");
                 one = document.querySelector('#two');
                 lat2 = p2Lat;
