@@ -17,6 +17,8 @@
     }, 100)
 
         function Navigation(){
+                lat2 = p1Lat;
+                lon2 = p1Lon;
                 if(chP1 == false && d < 5){
                 console.log("1");
                 one = document.querySelector('#two');
@@ -55,8 +57,8 @@
    
     
      //Marker Positionen
-     lat2 = 50.822125670138014;
-     lon2 = 12.939836075712524;
+     p1Lat = 50.822125670138014;
+     p1Lon = 12.939836075712524;
      p2Lat = 50.82256970090178;
      p2Lon = 12.938768380626097;
      p3Lat = 50.82300402804472;
