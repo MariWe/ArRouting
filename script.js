@@ -4,7 +4,6 @@
     let chP3 = false; 
     let zielP = false; 
     let d;
-    let help = 0;
     var one;
     window.onload = () => {
 
@@ -16,7 +15,7 @@
     }, 100)
 
         function Navigation(){
-             if(chP1 == false && d < 5){
+             if(chP1 == false && d < 7){
                 console.log("1");
                 one = document.querySelector('#two');
                 lat2 = 50.82256970090178;
