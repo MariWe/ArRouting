@@ -16,7 +16,7 @@
     }, 100)
 
         function Navigation(){
-             if(chP1 == false && d < 6){
+             if(chP1 == false && d < 10){
                 console.log("1");
                 one = document.querySelector('#two');
                 lat2 = 50.82256970090178;
