@@ -24,7 +24,7 @@
                 chP1 = true;
                 document.getElementById("one").setAttribute('scale', '0, 0 ,0');
                 }
-                if(chP2 == false && chP1 == true && d < 5){
+                if(chP2 == false && chP1 == true && d < 95){
                     console.log("2");
                     one = document.querySelector('#three');
                     lat2 = 50.82300402804472;
