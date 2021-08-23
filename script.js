@@ -16,7 +16,7 @@
     }, 100)
 
         function Navigation(){
-             if(chP1 == false && d < 10){
+             if(chP1 == false && d < 5){
                 console.log("1");
                 one = document.querySelector('#two');
                 lat2 = 50.82256970090178;
@@ -24,7 +24,7 @@
                 chP1 = true;
                 document.getElementById("one").setAttribute('scale', '0, 0 ,0');
                 }
-                if(chP2 == false && chP1 == true && d < 95){
+                if(chP2 == false && chP1 == true && d < 5){
                     console.log("2");
                     one = document.querySelector('#three');
                     lat2 = 50.82300402804472;
