@@ -4,58 +4,60 @@
     let chP3 = false; 
     let zielP = false; 
     let d;
+    let help = 0;
     var one;
+
     window.onload = () => {
 
     getLocation();
     one = document.querySelector('#one');
     var interval = setInterval(function(){
+        setTimeout(function() {
             Pointing();
             Navigation();
+            }, 5000); 
     }, 100)
 
         function Navigation(){
-             if(chP1 == false && d < 7){
+             if(chP1 == false && d < 5){
                 console.log("1");
                 one = document.querySelector('#two');
-                lat2 = 50.82256970090178;
-                lon2 = 12.938768380626097;
+                lat2 = p2Lat;
+                lon2 = p2Lon;
                 chP1 = true;
                 document.getElementById("one").setAttribute('scale', '0, 0 ,0');
                 }
                 if(chP2 == false && chP1 == true && d < 5){
                     console.log("2");
                     one = document.querySelector('#three');
-                    lat2 = 50.82300402804472;
-                    lon2 = 12.937663802663764;
+                    lat2 = p3Lat;
+                    lon2 = p3Lon;
                     chP2 = true;
                     document.getElementById("two").setAttribute('scale', '0, 0 ,0');
                 }
                 if(chP3 == false && chP1 == true && chP2 == true && d < 5){
                     console.log("3");
                     one = document.querySelector('#pony');
-                    lat2 = 50.82344880592846;
-                    lon2 = 12.937746951147917;
+                    lat2 = zLat;
+                    lon2 = zLon;
                     chP3 = true;
                     document.getElementById("three").setAttribute('scale', '0, 0 ,0');
                 }
                 if(chP1 == true && chP2 == true && chP3 == true &&  zielP == false && d < 3){
                     console.log('4');
                     alert("Sie haben Ihr Ziel erreicht!");
-                }
-                }
-   
-    
+                    clearInterval(interval);
+                } }
+               
      //Marker Positionen
-     lat2 = 50.822125670138014;
-     lon2 = 12.939836075712524;
-     p2Lat = 50.82256970090178;
-     p2Lon = 12.938768380626097;
-     p3Lat = 50.82300402804472;
-     p3Lon = 12.937663802663764;
-     zLat = 50.82344880592846;
-     zLon = 12.937746951147917;
-
+     lat2 = 50.82227;
+     lon2 = 12.93977;
+     p2Lat = 50.82259;
+     p2Lon = 12.93867;
+     p3Lat = 50.82305;
+     p3Lon = 12.93752;
+     zLat = 50.82352;
+     zLon = 12.93745;
 
     //Aktuelle Position
     function getLocation(){
@@ -64,8 +66,8 @@
             lat1 = aktuell.latitude;
             lon1 = aktuell.longitude;
             Distanz();
-        }
-        )}
+        })}
+        
 
     //Ausrichtung des Pfeils
     function Pointing(){
@@ -91,5 +93,3 @@
     div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
     }
 }
-    
-    
