@@ -4,7 +4,6 @@
     let chP3 = false; 
     let zielP = false; 
     let d;
-    let help = 0;
     var one;
 
     window.onload = () => {
@@ -12,10 +11,8 @@
     getLocation();
     one = document.querySelector('#one');
     var interval = setInterval(function(){
-        setTimeout(function() {
             Pointing();
             Navigation();
-            }, 5000); 
     }, 100)
 
         function Navigation(){
@@ -68,7 +65,6 @@
             Distanz();
         })}
         
-
     //Ausrichtung des Pfeils
     function Pointing(){
         var pfeil = document.querySelector('#pfeil');
