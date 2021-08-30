@@ -1,4 +1,4 @@
-       let lat1, lat2, lon1, lon2, p1Lat, p1Lon, p2Lat, p2Lon, p3Lat, p3Lon, zLat, zLon;
+    let lat1, lat2, lon1, lon2, p1Lat, p1Lon, p2Lat, p2Lon, p3Lat, p3Lon, zLat, zLon;
     let chP1 = false; 
     let chP2 = false; 
     let chP3 = false; 
@@ -13,8 +13,10 @@
     one = document.querySelector('#one');
     var interval = setInterval(function(){
             Pointing();
-            Navigation();
     }, 100)
+    setInterval(function(){
+            Navigation();
+    }, 2000)
 
         function Navigation(){
              if(chP1 == false && d < 5){
@@ -44,7 +46,7 @@
                 if(chP1 == true && chP2 == true && chP3 == true &&  zielP == false && d < 3){
                     console.log('4');
                     alert("Sie haben Ihr Ziel erreicht!");
-                    clearInterval(interval);
+                    //clearInterval(interval);
                 } }
                
      //Marker Positionen
