@@ -1,9 +1,10 @@
-    let lat1, lat2, lon1, lon2, p1Lat, p1Lon, p2Lat, p2Lon, p3Lat, p3Lon, zLat, zLon;
+       let lat1, lat2, lon1, lon2, p1Lat, p1Lon, p2Lat, p2Lon, p3Lat, p3Lon, zLat, zLon;
     let chP1 = false; 
     let chP2 = false; 
     let chP3 = false; 
     let zielP = false; 
     let d;
+    let help = 0;
     var one;
 
     window.onload = () => {
@@ -47,14 +48,14 @@
                 } }
                
      //Marker Positionen
-     lat2 = 50.82227;
-     lon2 = 12.93977;
-     p2Lat = 50.82259;
-     p2Lon = 12.93867;
-     p3Lat = 50.82305;
-     p3Lon = 12.93752;
-     zLat = 50.82352;
-     zLon = 12.93745;
+     lat2 = 50.8221284;
+     lon2 = 12.9401806;
+     p2Lat = 50.8225399;
+     p2Lon = 12.9392146;
+     p3Lat = 50.8230512;
+     p3Lon = 12.9384486;
+     zLat = 50.8233324;
+     zLon = 12.937961;
 
     //Aktuelle Position
     function getLocation(){
@@ -65,6 +66,7 @@
             Distanz();
         })}
         
+
     //Ausrichtung des Pfeils
     function Pointing(){
         var pfeil = document.querySelector('#pfeil');
@@ -89,3 +91,5 @@
     div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
     }
 }
+    
+    
