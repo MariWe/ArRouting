@@ -48,14 +48,14 @@
                 } }
                
      //Marker Positionen
-     lat2 = 50.8221284;
-     lon2 = 12.9401806;
-     p2Lat = 50.8225399;
-     p2Lon = 12.9392146;
-     p3Lat = 50.8230512;
-     p3Lon = 12.9384486;
-     zLat = 50.8233324;
-     zLon = 12.937961;
+     lat2 = 50.822218;
+     lon2 = 12.939607;
+     p2Lat = 50.822577;
+     p2Lon = 12.938716;
+     p3Lat = 50.823061;
+     p3Lon = 12.937573;
+     zLat = 50.823451;
+     zLon = 12.937632;
 
     //Aktuelle Position
     function getLocation(){
