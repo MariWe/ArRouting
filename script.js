@@ -26,6 +26,7 @@
                 lon2 = p2Lon;
                 chP1 = true;
                 document.getElementById("one").setAttribute('scale', '0, 0 ,0');
+                d = Infinity;
                 }
                 if(chP2 == false && chP1 == true && d < 5){
                     console.log("2");
@@ -34,6 +35,7 @@
                     lon2 = p3Lon;
                     chP2 = true;
                     document.getElementById("two").setAttribute('scale', '0, 0 ,0');
+                    d = Infinity;
                 }
                 if(chP3 == false && chP1 == true && chP2 == true && d < 5){
                     console.log("3");
@@ -42,6 +44,7 @@
                     lon2 = zLon;
                     chP3 = true;
                     document.getElementById("three").setAttribute('scale', '0, 0 ,0');
+                    d = Infinity;
                 }
                 if(chP1 == true && chP2 == true && chP3 == true &&  zielP == false && d < 3){
                     console.log('4');
