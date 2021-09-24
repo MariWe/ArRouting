@@ -3,30 +3,28 @@ window.onload = () => {
 
     one = document.querySelector('#one');
     getLocation();
-    Display();
 
     //"Navigation"
     function Navigation() {
-        if (one !== null && next !== undefined) {
-            next = document.getElementById(one.dataset.next);
-            lat2 = parseFloat(next.dataset.lat);
-            lon2 = parseFloat(next.dataset.lon);
-            d = Distanz(lat1, lon1, lat2, lon2);
-            if (d < 5) {
-                if (next.dataset.next === "null") {
-                    //Ziel erreicht
-                }
-                else {
-                    next.setAttribute('scale, 0, 0, 0');
-                    one = next;
-                }
+        next = document.getElementById(one.dataset.next);
+        lat2 = parseFloat(next.dataset.lat);
+        lon2 = parseFloat(next.dataset.lon);
+        d = Distanz(lat1, lon1, lat2, lon2);
+        Display();
+        if (d < 5) {
+            if (next.dataset.next === "null") {
+                alert("Sie haben Ihr Ziel erreicht");
+            }
+            else {
+                next.setAttribute('scale, 0, 0, 0');
+                one = next;
             }
         }
     }
 
-    function Display(d) {
+    function Display() {
         const div = document.querySelector('#demo');
-        div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
+        div.innerText = "Distanz bis zum nächsten Punkt: " + d;
     }
 
     //Aktuelle Position
@@ -38,7 +36,6 @@ window.onload = () => {
             one = document.querySelector('#one');
             Navigation();
             Pointing();
-            //Display();
         })
     }
 
