@@ -1,22 +1,21 @@
 let next, lat1, lat2, lon1, lon2, one, d;
 window.onload = () => {
 
-    one = document.querySelector('#one');
     getLocation();
 
     //"Navigation"
     function Navigation() {
+        one = document.querySelector('#one');
         next = document.getElementById(one.dataset.next);
-        lat2 = parseFloat(next.dataset.lat);
-        lon2 = parseFloat(next.dataset.lon);
-        d = Distanz(lat1, lon1, lat2, lon2);
+        lat2 = parseFloat(one.dataset.lat);
+        lon2 = parseFloat(one.dataset.lon);
+        Distanz(lat1, lon1, lat2, lon2);
         Display();
-        if (d < 5) {
+        if (d < 20) {
             if (next.dataset.next === "null") {
                 alert("Sie haben Ihr Ziel erreicht");
             }
             else {
-                next.setAttribute('scale, 0, 0, 0');
                 one = next;
             }
         }
@@ -24,7 +23,7 @@ window.onload = () => {
 
     function Display() {
         const div = document.querySelector('#demo');
-        div.innerText = "Distanz bis zum nächsten Punkt: " + d;
+        div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
     }
 
     //Aktuelle Position
@@ -48,7 +47,7 @@ window.onload = () => {
 
     //distanzBerechnung
     //cr: "https://www.movable-type.co.uk/scripts/latlong.html"
-    function Distanz(lat1, lat2, lon1, lon2) {
+    function Distanz(lat1, lon1, lat2, lon2) {
         const R = 6371e3; // metres
         const φ1 = lat1 * Math.PI / 180; // φ, λ in radians
         const φ2 = lat2 * Math.PI / 180;
