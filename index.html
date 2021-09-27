@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Routing</title>
+    <title>Pfeil Nav</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"> </script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>  
@@ -17,28 +17,28 @@
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
         <div id="demo" style="position: fixed; left: 40%; top: 5%; font-size: 1.25em; color: rgb(53, 50, 50); font-family: fantasy; z-index: 999999; background-color: rgba(255, 255, 255, 0.3); border-radius:5px;"></div>
         <!--Pony-->
-      <a-gltf-model src="https://raw.githubusercontent.com/MariWe/ArRouting/main/assets/pony.glb"
-      gps-entity-place="latitude: 50.82344542519407; longitude: 12.937797182674183;"
-      scale="1 1 1"
-      id="pony" data-lat="50.82344542519407" data-lon="12.937797182674183" data-next="null"></a-gltf-model> 
+      <a-entity geometry="primitive: sphere; radius: 2"
+      gps-entity-place="latitude: 50.823429; longitude: 12.937761;"
+      scale="0.2 0.2 .2"
+      id="pony" data-lat="50.823429" data-lon="12.937761" data-next="null"></a-entity> 
 
       <!--1. Wegpunkt-->
-      <a-gltf-model src="https://raw.githubusercontent.com/MariWe/ArRouting/main/assets/ring.glb"
-      gps-entity-place="latitude: 50.82222544406333; longitude: 12.939606343958467;"
-      scale="0.2 0.2 0.2"
-      id="one" data-lat="50.82222544406333" data-lon="12.939606343958467" data-next="two"></a-gltf-model>
+      <a-entity geometry="primitive: sphere; radius: 2"
+      gps-entity-place="latitude: 50.822195; longitude: 12.939591;"
+      scale="0.1 0.1 0.1"
+      id="one" data-lat="50.822195" data-lon="12.939591" data-next="two"></a-entity>
 
       <!--2. Wegpunkt-->
-      <a-gltf-model src="https://raw.githubusercontent.com/MariWe/ArRouting/main/assets/ring.glb"
-      gps-entity-place="latitude: 50.822572377030525; longitude: 12.9387527304969;"
-      scale="0.2 0.2 0.2"
-      id="two" data-lat="50.822572377030525" data-lon="12.9387527304969" data-next="three"></a-gltf-model>
+      <a-entity geometry="primitive: sphere; radius: 2"
+      gps-entity-place="latitude: 50.822551; longitude: 12.938748;"
+      scale="0.1 0.1 0.1"
+      id="two" data-lat="50.822551" data-lon="12.938748" data-next="three"></a-entity>
 
       <!--3. Wegpunkt-->
-      <a-gltf-model src="https://raw.githubusercontent.com/MariWe/ArRouting/main/assets/ring.glb"
-      gps-entity-place="latitude: 50.8230417278941861; longitude: 12.937640955314777;"
-      scale="0.2 0.2 0.2"
-      id="three" data-lat="50.8230417278941861" data-lon="12.937640955314777" data-next="pony"></a-gltf-model>
+      <a-entity geometry="primitive: sphere; radius: 2"
+      gps-entity-place="latitude: 50.823022; longitude: 12.937616;"
+      scale="0.1 0.1 0.1"
+      id="three" data-lat="50.823022" data-lon="12.937616" data-next="pony"></a-entity>
 
       <!--Camera + Arrow-->
       <a-camera gps-camera=" minDistance: 1; maxDistance: 5;  gpsMinDistance: 5; gpsTimeInterval: 3;" rotation-reader>
