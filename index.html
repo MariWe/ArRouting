@@ -16,29 +16,30 @@
         embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
         <div id="demo" style="position: fixed; left: 40%; top: 5%; font-size: 1.25em; color: rgb(53, 50, 50); font-family: fantasy; z-index: 999999; background-color: rgba(255, 255, 255, 0.3); border-radius:5px;"></div>
-        <!--Pony-->
-      <a-entity geometry="primitive: sphere; radius: 2"
-      gps-entity-place="latitude: 50.82346132; longitude: 12.93760567;"
-      scale="0.2 0.2 .2"
-      id="pony" data-lat="50.82346132" data-lon="12.93760567" data-next="null"></a-entity> 
 
       <!--1. Wegpunkt-->
       <a-entity geometry="primitive: sphere; radius: 2"
-      gps-entity-place="latitude: 50.82215; longitude: 12.93989;"
+      gps-entity-place="latitude: 50.822223; longitude: 12.939686;"
       scale="0.1 0.1 0.1"
-      id="one" data-lat="50.82215" data-lon="12.93989" data-next="two"></a-entity>
+      id="one" data-lat="50.822223" data-lon="12.939686" data-next="two"></a-entity>
 
       <!--2. Wegpunkt-->
       <a-entity geometry="primitive: sphere; radius: 2"
-      gps-entity-place="latitude: 50.82257854; longitude: 12.93873891;"
+      gps-entity-place="latitude: 50.822604; longitude: 12.938756;"
       scale="0.1 0.1 0.1"
-      id="two" data-lat="50.82257854" data-lon="12.93873891" data-next="three"></a-entity>
+      id="two" data-lat="50.822604" data-lon="12.938756" data-next="three"></a-entity>
 
       <!--3. Wegpunkt-->
       <a-entity geometry="primitive: sphere; radius: 2"
-      gps-entity-place="latitude: 50.82302248; longitude: 12.93765395;"
+      gps-entity-place="latitude: 50.823082; longitude: 12.937634;"
       scale="0.1 0.1 0.1"
-      id="three" data-lat="50.82302248" data-lon="12.93765395" data-next="pony"></a-entity>
+      id="three" data-lat="50.823082" data-lon="12.937634" data-next="pony"></a-entity>
+      
+          <!--Pony-->
+      <a-entity geometry="primitive: sphere; radius: 2"
+      gps-entity-place="latitude: 50.823442; longitude: 12.937768;"
+      scale="0.2 0.2 .2"
+      id="pony" data-lat="50.82346132" data-lon="12.93760567" data-next="null"></a-entity> 
 
       <!--Camera + Arrow-->
       <a-camera gps-camera=" minDistance: 1; maxDistance: 50;  gpsMinDistance: 5; gpsTimeInterval: 3;" rotation-reader>
