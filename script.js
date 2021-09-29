@@ -1,11 +1,12 @@
-let next, lat1, lat2, lon1, lon2, one, d;
+let next, lat1, lat2, lon1, lon2, one, obj, d;
 window.onload = () => {
 
+    one = document.querySelector('#one');
     getLocation();
 
     //"Navigation"
     function Navigation() {
-        one = document.querySelector('#one');
+        obj = document.querySelector('#one');
         next = document.getElementById(one.dataset.next);
         lat2 = parseFloat(one.dataset.lat);
         lon2 = parseFloat(one.dataset.lon);
@@ -17,9 +18,9 @@ window.onload = () => {
             }
             else {
                 one = next;
+                obj = next;
             }
         }
-
     }
 
     function Display() {
@@ -33,7 +34,7 @@ window.onload = () => {
             aktuell = position.coords;
             lat1 = aktuell.latitude;
             lon1 = aktuell.longitude;
-            one = document.querySelector('#one');
+            //one = document.querySelector('#one');
             Navigation();
             Pointing();
         })
@@ -42,7 +43,7 @@ window.onload = () => {
     //Ausrichtung des Pfeils
     function Pointing() {
         var pfeil = document.querySelector('#pfeil');
-        var position = one.object3D.position;
+        var position = obj.object3D.position;
         pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
     }
 
