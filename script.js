@@ -6,7 +6,7 @@ window.onload = () => {
 
     //"Navigation"
     function Navigation() {
-        obj = document.querySelector('#one');
+        obj = document.getElementById('one');
         next = document.getElementById(one.dataset.next);
         lat2 = parseFloat(one.dataset.lat);
         lon2 = parseFloat(one.dataset.lon);
