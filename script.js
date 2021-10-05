@@ -1,19 +1,20 @@
 let next, lat1, lat2, lon1, lon2, one, obj, d;
 window.onload = () => {
 
-    one = document.querySelector('#one');
-    getLocation();
+   //one = document.querySelector('#one');
     createObject();
+    getLocation();
+    
 
     //"Navigation"
     function Navigation() {
-        obj = document.getElementById('one');
+        one = document.getElementById('one');
         next = document.getElementById(one.dataset.next);
         lat2 = parseFloat(one.dataset.lat);
         lon2 = parseFloat(one.dataset.lon);
         Distanz(lat1, lon1, lat2, lon2);
         Display();
-        if (d < 10) {
+        if (d < 20) {
             if (next.dataset.next === "null") {
                 alert("Sie haben Ihr Ziel erreicht");
             }
@@ -44,8 +45,18 @@ window.onload = () => {
     //Ausrichtung des Pfeils
     function Pointing() {
         var pfeil = document.querySelector('#pfeil');
-        var position = obj.object3D.position;
+        var position = one.object3D.position;
         pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
+    }
+
+    function createObject(){
+        let scene =  document.querySelector('a-scene');
+        let model = document.createElement('a-box');
+        model.setAttribute('material', 'color: purple;');
+        model.setAttribute('gps-entity-place', 'latitude: 50.82211; longitude: 12.93986;');
+        model.setAttribute('scale', '0.5 0.5 0.5');
+        model.setAttribute('rotation', '0 0 0');
+        scene.appendChild(model);
     }
 
     //distanzBerechnung
@@ -62,15 +73,5 @@ window.onload = () => {
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         d = R * c; // in metres
         return d;
-    }
-    
-     function createObject(){
-        let scene =  document.querySelector('a-scene');
-        let model = document.createElement('a-box');
-        model.setAttribute('material', 'color: purple;');
-        model.setAttribute('gps-entity-place', 'latitude: 50.82211; longitude: 12.93986;');
-        model.setAttribute('scale', '0.5 0.5 0.5');
-        model.setAttribute('rotation', '-1 0 -5');
-        scene.appendChild(model);
     }
 }
