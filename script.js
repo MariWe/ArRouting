@@ -67,7 +67,8 @@ window.onload = () => {
      function createObject(){
         let scene =  document.querySelector('a-scene');
         let model = document.createElement('a-box');
-        model.setAttribute('gps-entity-place', 'latitude: lat1; longitude: lon1;');
+        model.setAttribute('material', 'color: purple;');
+        model.setAttribute('gps-entity-place', 'latitude: 50.82211; longitude: 12.93986;');
         model.setAttribute('scale', '0.5 0.5 0.5');
         model.setAttribute('rotation', '-1 0 -5');
         scene.appendChild(model);
