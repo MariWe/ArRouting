@@ -1,8 +1,8 @@
 let next, lat1, lat2, lon1, lon2, one, obj, d;
 window.onload = () => {
 
-   //one = document.querySelector('#one');
-    createObject();
+
+    //createObject();
     getLocation();
     
 
@@ -49,7 +49,7 @@ window.onload = () => {
         pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
     }
 
-    function createObject(){
+    /*function createObject(){
         let scene =  document.querySelector('a-scene');
         let model = document.createElement('a-box');
         model.setAttribute('material', 'color: purple;');
@@ -57,7 +57,7 @@ window.onload = () => {
         model.setAttribute('scale', '0.5 0.5 0.5');
         model.setAttribute('rotation', '0 0 0');
         scene.appendChild(model);
-    }
+    }*/
 
     //distanzBerechnung
     //cr: "https://www.movable-type.co.uk/scripts/latlong.html"
