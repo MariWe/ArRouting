@@ -3,6 +3,7 @@ window.onload = () => {
 
     one = document.querySelector('#one');
     getLocation();
+    createObject();
 
     //"Navigation"
     function Navigation() {
@@ -61,5 +62,14 @@ window.onload = () => {
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         d = R * c; // in metres
         return d;
+    }
+    
+     function createObject(){
+        let scene =  document.querySelector('a-scene');
+        let model = document.createElement('a-box');
+        model.setAttribute('gps-entity-place', 'latitude: lat1; longitude: lon1;');
+        model.setAttribute('scale', '0.5 0.5 0.5');
+        model.setAttribute('rotation', '-1 0 -5');
+        scene.appendChild(model);
     }
 }
