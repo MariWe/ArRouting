@@ -13,7 +13,7 @@ window.onload = () => {
         lon2 = parseFloat(one.dataset.lon);
         Distanz(lat1, lon1, lat2, lon2);
         Display();
-        if (d < 5) {
+        if (d < 10) {
             if (next.dataset.next === "null") {
                 alert("Sie haben Ihr Ziel erreicht");
             }
