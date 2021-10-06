@@ -1,20 +1,19 @@
 let next, lat1, lat2, lon1, lon2, one, obj, d;
 window.onload = () => {
 
-
-    //createObject();
+    one = document.getElementById('one');
     getLocation();
-    
+    //createObject();
 
     //"Navigation"
     function Navigation() {
-        one = document.getElementById('one');
+        
         next = document.getElementById(one.dataset.next);
         lat2 = parseFloat(one.dataset.lat);
         lon2 = parseFloat(one.dataset.lon);
         Distanz(lat1, lon1, lat2, lon2);
         Display();
-        if (d < 20) {
+        if (d < 5) {
             if (next.dataset.next === "null") {
                 alert("Sie haben Ihr Ziel erreicht");
             }
@@ -58,6 +57,7 @@ window.onload = () => {
         model.setAttribute('rotation', '0 0 0');
         scene.appendChild(model);
     }*/
+    
 
     //distanzBerechnung
     //cr: "https://www.movable-type.co.uk/scripts/latlong.html"
@@ -75,3 +75,4 @@ window.onload = () => {
         return d;
     }
 }
+
