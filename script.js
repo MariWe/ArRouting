@@ -1,4 +1,5 @@
-let next, lat1, lat2, lon1, lon2, one, obj, d;
+let model, next, lat1, lat2, lon1, lon2, one, obj, d, lat, lon, pos;
+
 window.onload = () => {
 
     one = document.getElementById('one');
@@ -7,7 +8,7 @@ window.onload = () => {
 
     //"Navigation"
     function Navigation() {
-        
+
         next = document.getElementById(one.dataset.next);
         lat2 = parseFloat(one.dataset.lat);
         lon2 = parseFloat(one.dataset.lon);
@@ -38,6 +39,7 @@ window.onload = () => {
             //one = document.querySelector('#one');
             Navigation();
             Pointing();
+            return lat1, lon1;
         })
     }
 
@@ -48,16 +50,47 @@ window.onload = () => {
         pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
     }
 
-    /*function createObject(){
-        let scene =  document.querySelector('a-scene');
-        let model = document.createElement('a-box');
-        model.setAttribute('material', 'color: purple;');
-        model.setAttribute('gps-entity-place', 'latitude: 50.82211; longitude: 12.93986;');
-        model.setAttribute('scale', '0.5 0.5 0.5');
-        model.setAttribute('rotation', '0 0 0');
-        scene.appendChild(model);
+    /*dynamisch erzeugtes Testobjekt 
+    function createObject(lat1, lon1) {
+            let scene = document.querySelector('a-scene');
+            let model = document.createElement('a-box');
+            model.setAttribute('material', 'color: maroon;');
+            model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
+            console.log(lat, lon);
+            model.setAttribute('scale', '0.5 0.5 0.5');
+            model.setAttribute('position', '0.5 4.0 -3.7');
+            scene.appendChild(model);
+            alert("fertsch!");
     }*/
-    
+
+    //Button zum Erzeugen des Objektes + Vergabe der Style-Elemente 
+    let btn = document.createElement("button");
+    btn.innerHTML = "Click Me!";
+    document.body.appendChild(btn);
+    btn.setAttribute('id', 'btn');
+    btn.onclick = function(){
+        let scene = document.querySelector('a-scene');
+        model = document.createElement('a-box');
+        model.setAttribute('material', 'color: maroon;');
+        model.setAttribute('id', 'box');
+        console.log(lat1, lon1);
+        model.setAttribute('scale', '0.5 0.5 0.5');
+        model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
+        //model.setAttribute('position', pos);
+        scene.appendChild(model);
+        document.getElementById('box').object3D.position.set(1, 1, -5);
+        alert("fertsch!");
+    };
+    btn.style.color = "rgb(53, 50, 50)";
+    btn.style.position = "fixed";
+    btn.style.zIndex = "999999";
+    btn.style.left = "40%";
+    btn.style.bottom = "5%";
+    btn.style.fontSize = "1.25em";
+    btn.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+    btn.style.fontFamily = "fantasy";
+    btn.style.borderRadius = "5px";
+
 
     //distanzBerechnung
     //cr: "https://www.movable-type.co.uk/scripts/latlong.html"
@@ -75,4 +108,3 @@ window.onload = () => {
         return d;
     }
 }
-
