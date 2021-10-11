@@ -1,32 +1,6 @@
-let model, next, lat1, lat2, lon1, lon2, one, obj, d, lat, lon, pos;
+let model, next, lat1, lat2, lon1, lon2, one, obj, d, lat, lon;
 
 window.onload = () => {
-    
-     //Button zum Erzeugen des Objektes + Vergabe der Style-Elemente 
-    let btn = document.createElement("button");
-    btn.innerHTML = "Click Me!";
-    document.body.appendChild(btn);
-    btn.setAttribute('id', 'btn');
-    btn.onclick = function(){
-        let scene = document.querySelector('a-scene');
-        model = document.createElement('a-box');
-        model.setAttribute('material', 'color: maroon;');
-        model.setAttribute('id', 'box');
-        console.log(lat1, lon1);
-        model.setAttribute('scale', '0.5 0.5 0.5');
-        model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
-        model.getAttribute('position');
-        model.setAttribute('position', {x: 1, y: 1, z: -3});
-    };
-    btn.style.color = "rgb(53, 50, 50)";
-    btn.style.position = "fixed";
-    btn.style.zIndex = "999999";
-    btn.style.left = "40%";
-    btn.style.bottom = "5%";
-    btn.style.fontSize = "1.25em";
-    btn.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
-    btn.style.fontFamily = "fantasy";
-    btn.style.borderRadius = "5px";
 
     one = document.getElementById('one');
     getLocation();
@@ -34,6 +8,7 @@ window.onload = () => {
 
     //"Navigation"
     function Navigation() {
+
         next = document.getElementById(one.dataset.next);
         lat2 = parseFloat(one.dataset.lat);
         lon2 = parseFloat(one.dataset.lon);
@@ -49,6 +24,7 @@ window.onload = () => {
             }
         }
     }
+
     function Display() {
         const div = document.querySelector('#demo');
         div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
@@ -73,6 +49,36 @@ window.onload = () => {
         var position = one.object3D.position;
         pfeil.object3D.lookAt(new THREE.Vector3(position.x, position.y, position.z));
     }
+
+    //Button zum Erzeugen des Objektes + Vergabe der Style-Elemente 
+    let btn = document.createElement("button");
+    btn.innerHTML = "Click Me!";
+    document.body.appendChild(btn);
+    btn.setAttribute('id', 'btn');
+    btn.onclick = function(){
+        let scene = document.querySelector('a-scene');
+        model = document.createElement('a-box');
+        scene.appendChild(model);
+        model.setAttribute('material', 'color: maroon;');
+        model.setAttribute('id', 'box');
+        console.log(lat1, lon1);
+        model.setAttribute('scale', '0.5 0.5 0.5');
+        model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
+        model.getAttribute('position');
+        model.setAttribute('position', {x: 1, y: 1, z: -3});
+        
+        alert("fertsch!");
+    };
+    btn.style.color = "rgb(53, 50, 50)";
+    btn.style.position = "fixed";
+    btn.style.zIndex = "999999";
+    btn.style.left = "40%";
+    btn.style.bottom = "5%";
+    btn.style.fontSize = "1.25em";
+    btn.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+    btn.style.fontFamily = "fantasy";
+    btn.style.borderRadius = "5px";
+
 
     //distanzBerechnung
     //cr: "https://www.movable-type.co.uk/scripts/latlong.html"
