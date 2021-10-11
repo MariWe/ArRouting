@@ -11,14 +11,12 @@ window.onload = () => {
         let scene = document.querySelector('a-scene');
         model = document.createElement('a-box');
         model.setAttribute('material', 'color: maroon;');
-        model.setAttribute('id', 'box');
-        console.log(lat1, lon1);
+        //model.setAttribute('id', 'box');
+        //console.log(lat1, lon1);
         model.setAttribute('scale', '0.5 0.5 0.5');
         model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
-        //model.setAttribute('position', pos);
-        scene.appendChild(model);
-        document.getElementById('box').object3D.position.set(1, 1, -5);
-        alert("fertsch!");
+        model.getAttribute('position');
+        model.setAttribute('position', {x: 1, y: 1, z: -3});
     };
     btn.style.color = "rgb(53, 50, 50)";
     btn.style.position = "fixed";
@@ -36,7 +34,6 @@ window.onload = () => {
 
     //"Navigation"
     function Navigation() {
-
         next = document.getElementById(one.dataset.next);
         lat2 = parseFloat(one.dataset.lat);
         lon2 = parseFloat(one.dataset.lon);
@@ -52,7 +49,6 @@ window.onload = () => {
             }
         }
     }
-
     function Display() {
         const div = document.querySelector('#demo');
         div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
