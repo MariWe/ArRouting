@@ -11,8 +11,8 @@ window.onload = () => {
         let scene = document.querySelector('a-scene');
         model = document.createElement('a-box');
         model.setAttribute('material', 'color: maroon;');
-        //model.setAttribute('id', 'box');
-        //console.log(lat1, lon1);
+        model.setAttribute('id', 'box');
+        console.log(lat1, lon1);
         model.setAttribute('scale', '0.5 0.5 0.5');
         model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
         model.getAttribute('position');
