@@ -81,7 +81,7 @@ window.onload = () => {
     }
 
     function update() {
-        model.setAttribute('position', { x: 0, y: 0, z: -0.75 });
+        model.setAttribute('position', { x: 0, y: 0, z: -2 });
     }
 
     //distanzBerechnung
