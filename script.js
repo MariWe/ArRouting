@@ -55,20 +55,6 @@ window.onload = () => {
     btn.innerHTML = "Click Me!";
     document.body.appendChild(btn);
     btn.setAttribute('id', 'btn');
-    btn.onclick = function(){
-        let scene = document.querySelector('a-scene');
-        model = document.createElement('a-box');
-        scene.appendChild(model);
-        model.setAttribute('material', 'color: maroon;');
-        model.setAttribute('id', 'box');
-        console.log(lat1, lon1);
-        model.setAttribute('scale', '0.5 0.5 0.5');
-        model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
-        model.getAttribute('position');
-        model.setAttribute('position', {x: 1, y: 1, z: -3});
-        
-        alert("fertsch!");
-    };
     btn.style.color = "rgb(53, 50, 50)";
     btn.style.position = "fixed";
     btn.style.zIndex = "999999";
@@ -79,6 +65,26 @@ window.onload = () => {
     btn.style.fontFamily = "fantasy";
     btn.style.borderRadius = "5px";
 
+    btn.onclick = function () {
+        createElement();
+        setTimeout(function () {
+            update();
+        }, 100);
+    };
+
+    function createElement() {
+        model = document.createElement('a-box');
+        document.querySelector('a-scene').appendChild(model);
+        model.setAttribute('material', 'color: maroon; roughness: 1.0; metalness: 0.5;');
+        model.setAttribute('id', 'box');
+        model.setAttribute('scale', '0.5 0.5 0.5');
+        model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
+        model.setAttribute('position', '1 1 -5');
+    }
+
+    function update() {
+        model.setAttribute('position', { x: 1, y: 1, z: -5 });
+    }
 
     //distanzBerechnung
     //cr: "https://www.movable-type.co.uk/scripts/latlong.html"
