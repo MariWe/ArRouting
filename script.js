@@ -77,13 +77,13 @@ window.onload = () => {
         document.querySelector('a-scene').appendChild(model);
         model.setAttribute('material', 'color: maroon; roughness: 1.0; metalness: 0.5;');
         model.setAttribute('id', 'box');
-        model.setAttribute('scale', '0.5 0.5 0.5');
+        model.setAttribute('scale', '0.75 0.75 0.75');
         model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
-        model.setAttribute('position', '0 0 -0.5');
+        model.setAttribute('position', '0 0 -0.75');
     }
 
     function update() {
-        model.setAttribute('position', { x: 0, y: 0, z: -0.5 });
+        model.setAttribute('position', { x: 0, y: 0, z: -0.75 });
     }
 
     //distanzBerechnung
