@@ -4,11 +4,9 @@ window.onload = () => {
 
     one = document.getElementById('one');
     getLocation();
-    //createObject();
 
     //"Navigation"
     function Navigation() {
-
         next = document.getElementById(one.dataset.next);
         lat2 = parseFloat(one.dataset.lat);
         lon2 = parseFloat(one.dataset.lon);
@@ -75,11 +73,11 @@ window.onload = () => {
     function createElement() {
         model = document.createElement('a-box');
         document.querySelector('a-scene').appendChild(model);
-        model.setAttribute('material', 'color: maroon; roughness: 0.4; metalness: 1.0;');
+        model.setAttribute('material', 'color: maroon; roughness: 0.4; metalness: 0.7;');
         model.setAttribute('id', 'box');
         model.setAttribute('scale', '0.75 0.75 0.75');
         model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
-        model.setAttribute('position', '0 0 -0.75');
+        model.setAttribute('position', '0 0 -2');
     }
 
     function update() {
