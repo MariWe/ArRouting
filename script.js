@@ -77,11 +77,11 @@ window.onload = () => {
         model.setAttribute('id', 'box');
         model.setAttribute('scale', '0.75 0.75 0.75');
         model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
-        model.setAttribute('position', '0 0 3');
+        model.setAttribute('position', '0 0 0');
     }
 
     function update() {
-        model.setAttribute('position', { x: 0, y: 0, z: 3 });
+        model.setAttribute('position', { x: 0, y: 0, z: -4 });
     }
 
     //distanzBerechnung
