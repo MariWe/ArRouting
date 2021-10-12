@@ -73,7 +73,7 @@ window.onload = () => {
     function createElement() {
         model = document.createElement('a-box');
         document.querySelector('a-scene').appendChild(model);
-        model.setAttribute('material', 'color: maroon; roughness: 0.4; metalness: 0.7;');
+        model.setAttribute('material', 'color: maroon; metalness: 0.5;');
         model.setAttribute('id', 'box');
         model.setAttribute('scale', '0.75 0.75 0.75');
         model.setAttribute('gps-entity-place', 'latitude: ${lat1}; longitude: ${lon1};');
