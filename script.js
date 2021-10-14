@@ -2,7 +2,6 @@ let model, next, lat1, lat2, lon1, lon2, one, obj, d, lat, lon;
 
 
 window.onload = () => {
-
     one = document.getElementById('one');
     getLocation();
     createButton();
