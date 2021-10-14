@@ -14,7 +14,7 @@ window.onload = () => {
         lon2 = parseFloat(one.dataset.lon);
         Distanz(lat1, lon1, lat2, lon2);
         Display();
-        if (d < 260) {
+        if (d < 5) {
             if (next.dataset.next === "null") {
                 const div = document.querySelector('#demo');
                 div.innerText = "Sie haben Ihr Ziel erreicht!";
