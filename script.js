@@ -1,5 +1,6 @@
 let model, next, lat1, lat2, lon1, lon2, one, obj, d, lat, lon;
 
+
 window.onload = () => {
 
     one = document.getElementById('one');
@@ -8,10 +9,13 @@ window.onload = () => {
 
     //"Navigation"
     function Navigation() {
+        let zielLat = 50.82342828815267;
+        let zielLon = 12.93768346309662;
 
         next = document.getElementById(one.dataset.next);
         lat2 = parseFloat(one.dataset.lat);
         lon2 = parseFloat(one.dataset.lon);
+        zielDistanz(lat1, lon1, zielLat, zielLon);
         Distanz(lat1, lon1, lat2, lon2);
         Display();
         if (d < 5) {
@@ -25,10 +29,24 @@ window.onload = () => {
             }
         }
     }
-
+    
     function Display() {
         const div = document.querySelector('#demo');
-        div.innerText = "Distanz bis zum nächsten Punkt: " + d.toFixed(2);
+        div.innerText = "Distanz bis zum Ziel: " + dis.toFixed(2) + "m";
+    }
+
+    function zielDistanz(lat1, lon1, zielLat, zielLon){
+        const R = 6371e3; // metres
+        const φ1 = lat1 * Math.PI / 180; // φ, λ in radians
+        const φ2 = zielLat * Math.PI / 180;
+        const Δφ = (zielLat - lat1) * Math.PI / 180;
+        const Δλ = (zielLon - lon1) * Math.PI / 180;
+        const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+            Math.cos(φ1) * Math.cos(φ2) *
+            Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        dis = R * c; // in metres
+        return dis;
     }
 
     //Aktuelle Position
