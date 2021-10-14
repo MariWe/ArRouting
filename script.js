@@ -31,7 +31,7 @@ window.onload = () => {
     
     function Display() {
         const div = document.querySelector('#demo');
-        div.innerText = "Distanz bis zum Ziel: " + dis.toFixed(2) + "m";
+        div.innerText = "Zieldistanz: " + dis.toFixed(2) + "m";
     }
 
     function zielDistanz(lat1, lon1, zielLat, zielLon){
