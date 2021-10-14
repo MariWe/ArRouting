@@ -1,16 +1,16 @@
 let model, next, lat1, lat2, lon1, lon2, one, obj, d, lat, lon;
 
-
 window.onload = () => {
     one = document.getElementById('one');
     getLocation();
     createButton();
 
+    let dest = document.getElementById('five').getAttribute('gps-entity-place');
+    let zielLat = dest.latitude;
+    let zielLon = dest.longitude;
+    
     //"Navigation"
     function Navigation() {
-        let zielLat = 50.82342828815267;
-        let zielLon = 12.93768346309662;
-
         next = document.getElementById(one.dataset.next);
         lat2 = parseFloat(one.dataset.lat);
         lon2 = parseFloat(one.dataset.lon);
