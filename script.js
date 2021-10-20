@@ -51,6 +51,7 @@ window.onload = () => {
     //Aktuelle Position
     function getLocation() {
         navigator.geolocation.watchPosition(function (position) {
+            enableHighAccuracy: true;
             aktuell = position.coords;
             lat1 = aktuell.latitude;
             lon1 = aktuell.longitude;
